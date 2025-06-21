@@ -8,8 +8,14 @@ import glob
 from graph_generator import graph_generator
 
 generator = graph_generator()
+
+# Generate 100 MIXED graphs (100–200 nodes)
+generator.gen_new_graphs(100, 200, 100)
+generator.save_graphs("../data/sim_graphs",index=0)
+
+# Generate 30 mixed powerlaw graphs (300–500 nodes)
 generator.gen_new_graphs(300, 500, 30)
-generator.save_graphs("../data/sim_graphs")
+generator.save_graphs("../data/sim_graphs",index=100)
 
 os.chdir("../data/sim_graphs")
 

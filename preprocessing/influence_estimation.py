@@ -7,7 +7,7 @@ from multiprocessing import Pool, cpu_count
 from functools import partial
 import random
 
-from diffuse import IC
+from IC_noisy_alpha_parallel import IC
 
 # Thiết lập seed để tái lập
 random.seed(1)
@@ -16,7 +16,7 @@ random.seed(1)
 labels = open("../influence_labels.csv", "a")
 
 seed_size = 10
-alpha = 0.5  # Tham số nhiễu
+alpha = 0.2  # Tham số nhiễu
 mc = 1000
 
 # Lặp qua các file đồ thị

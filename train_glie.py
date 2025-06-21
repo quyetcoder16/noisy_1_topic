@@ -89,7 +89,7 @@ torch.manual_seed(1)
 
 def main():
     os.chdir("data")
-    v = "1"
+    v = "83"
 
     # ----- Params
     learn = 0.01
@@ -106,7 +106,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else torch.device("cpu"))
     print(f"training on {device} device")
 
-    labels = pd.read_csv("../data/influence_train_set.csv")
+    labels = pd.read_csv("../data/influence_train_set_end.csv")
     # header = None, sep = " ")
     labels.columns = ["graph", "node", "infl"]
     print(labels.head())
@@ -257,6 +257,8 @@ def main():
         # --------- Remember best accuracy and save checkpoint
         if np.mean(val_loss) < best_val_acc:
             best_val_acc = np.mean(val_loss)
+            print("Best val loss:", best_val_acc)
+            print("Saving.. \n")
             torch.save({
                 'state_dict': model.state_dict(),
                 'optimizer': optimizer.state_dict(),

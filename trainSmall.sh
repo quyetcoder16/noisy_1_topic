@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=train_INF_NOISE
-#SBATCH --partition=small
+#SBATCH --partition=gpu
 #SBATCH --ntasks=64
 #SBATCH --nodes=2
 #SBATCH --output=%x.%j.out
@@ -8,4 +8,4 @@
 
 conda activate QUYET_NOISE
 
-python ./train_glie.py
+python ./preprocessing/negative_samples.py
